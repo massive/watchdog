@@ -1,6 +1,8 @@
 # Watchdog
 
-_A HACS AppDaemon addon for getting notified on stale sensors [HACS](https://github.com/custom-components/hacs)._
+_[Watchdog](https://github.com/massive/watchdog) is a HACS AppDaemon addon for getting notified on stale sensors ._
+
+[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge)](https://github.com/custom-components/hacs)
 
 ## Installation
 
@@ -36,3 +38,25 @@ key | optional | type | default | description
 -- | -- | -- | -- | --
 `entity_id` | False | string | | Entity id
 `threshold` | True | integer | default threshold | Staleness threshold for the given entity
+
+## Example Lovelace card
+
+```yaml
+card:
+  content: >-
+    <h3> <ha-icon icon="mdi:alert"></ha-icon> Following sensors are having
+    problems</h3>
+
+
+    The following sensors are not receiving data:
+
+    {% for entity in state_attr('binary_sensor.watchdog_alert', 'entities') %}
+      * {{ entity }}
+    {% endfor %}
+  title: Problem with sensors!
+  type: markdown
+conditions:
+  - entity: binary_sensor.watchdog_alert
+    state: 'on'
+type: conditional
+```
