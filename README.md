@@ -1,8 +1,12 @@
+[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge)](https://github.com/custom-components/hacs)
+
 # Watchdog
 
-_[Watchdog](https://github.com/massive/watchdog) is a HACS AppDaemon addon for getting notified on stale sensors ._
+## Introduction
 
-[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge)](https://github.com/custom-components/hacs)
+Watchdog is an AppDaemon addon for getting notified on stale sensors.
+
+Get alerted if sensors run out of battery, break or go out of range.
 
 ## Installation
 
